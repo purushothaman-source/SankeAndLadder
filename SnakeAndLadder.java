@@ -3,26 +3,30 @@ package com.program.snakeandladder;
 import java.util.Random;
 class SnakeAndLadderGame{
 	
-
-	
-	public static void random(int playerAPosition) {
+	public static void rollDies(int playerAPosition) {
 		Random random =new Random();
 		int rollDie=random.nextInt(6)+1;
-		System.out.println(logic(playerAPosition));
+		snakeLadder(playerAPosition,rollDie));
 	}
-	public static int logic(int playerAPosition) {
+	public static int snakeLadder(int playerAPosition,int rollDie ) {
 		Random random =new Random();
 		int choice=random.nextInt(3);
+		final int noPlay=0;
+		final int ladder=1;
+		final int snake=2;
+		
 		switch(choice) {
-		case 1:playerAPosition=playerAPosition;
+		case noPlay:playerAPosition=playerAPosition+0;
 			   break;
-		case 2:playerAPosition=playerAPosition+7;
+		case ladder:playerAPosition=playerAPosition+rollDie;
 			 break;
-		case 3:if ((playerAPosition-7)>=0)
-			playerAPosition=playerAPosition-7;
-			break;
-		
-		
+		case snake:if ((playerAPosition-rollDie)<=0) {
+			  playerAPosition=0;
+		       }
+		       else {
+			    playerAPosition=playerAPosition-rollDie;
+		       }
+			   break;
 		}
 	return playerAPosition;	
 	}
@@ -35,9 +39,7 @@ public class SnakeAndLadder {
 		//initializing variable playerAPosition and rollDie
 		int playerAPosition=0;
 		int player=1;
-		SnakeAndLadderGame.random(playerAPosition);
-		
-				
+		SnakeAndLadderGame.rollDies(playerAPosition);		
 	}	
 }
 
