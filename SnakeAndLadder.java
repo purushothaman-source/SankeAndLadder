@@ -6,7 +6,7 @@ class SnakeAndLadderGame{
 	public static void rollDies(int playerAPosition) {
 		Random random =new Random();
 		int rollDie=random.nextInt(6)+1;
-		snakeLadder(playerAPosition,rollDie));
+		snakeLadder(playerAPosition,rollDie);
 	}
 	public static int snakeLadder(int playerAPosition,int rollDie ) {
 		Random random =new Random();
